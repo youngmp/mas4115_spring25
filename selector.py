@@ -118,8 +118,14 @@ def main():
         elif choice == '2':
             random_idx = np.random.choice(range(0,len(roster)), p=prob)
         answers[roster[random_idx]] += 1
-        dump_to_file(PATH, answers)
         print("\n" + roster[random_idx],end='\n')
+        yn = input("\nDid they answer the question (y/n): ")
+        if yn == 'y':
+            pass
+        elif yn =='n':
+            answers[roster[random_idx]] -= 1
+        dump_to_file(PATH, answers)
+        
 
 if __name__ == "__main__":
     main()
